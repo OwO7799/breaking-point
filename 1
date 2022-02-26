@@ -1,0 +1,110 @@
+print("Edited By BaconLord")
+if game.PlaceId == 834827615 then
+local function brightFunction()
+game:GetService("Lighting").Brightness = 2
+game:GetService("Lighting").ClockTime = 14
+game:GetService("Lighting").FogEnd = 100000
+game:GetService("Lighting").GlobalShadows = false
+game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+end
+
+brightLoop = game:GetService("RunService").RenderStepped:Connect(brightFunction)
+   wait(1.3)
+   spawn(function()
+  while wait () do
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(11)
+end end)
+wait(0.5)
+local _speed=3000
+function tp(...)
+ local plr=game.Players.LocalPlayer
+ local args={...}
+ if typeof(args[1])=="number"and args[2]and args[3]then
+    args=Vector3.new(args[1],args[2],args[3])
+ elseif typeof(args[1])=="Vector3" then
+     args=args[1]    
+ elseif typeof(args[1])=="CFrame" then
+     args=args[1].Position
+ end
+ local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+ game:GetService("TweenService"):Create(
+     plr.Character.HumanoidRootPart,
+     TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+     {CFrame=CFrame.new(args)}
+ ):Play()
+end
+
+tp(-638.353638, -58.3049469, 757.653931, -0.709312856, -2.77422252e-11, 0.704893827, 6.66586893e-15, 1, 3.93633112e-11, -0.704893827, 2.79256011e-11, -0.709312856)
+
+
+wait(0.5)
+local baseplate = Instance.new("Part")
+baseplate.Parent = workspace
+baseplate.Size = Vector3.new(80,1,80)
+baseplate.Anchored = true
+baseplate.Name = "Baseplate"
+baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-2,0)
+
+spawn(function()
+   while wait (2) do
+local _speed=3000
+function tp(...)
+ local plr=game.Players.LocalPlayer
+ local args={...}
+ if typeof(args[1])=="number"and args[2]and args[3]then
+    args=Vector3.new(args[1],args[2],args[3])
+ elseif typeof(args[1])=="Vector3" then
+     args=args[1]    
+ elseif typeof(args[1])=="CFrame" then
+     args=args[1].Position
+ end
+ local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+ game:GetService("TweenService"):Create(
+     plr.Character.HumanoidRootPart,
+     TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+     {CFrame=CFrame.new(args)}
+ ):Play()
+end
+
+tp(-638.353638, -58.3049469, 757.653931, -0.709312856, -2.77422252e-11, 0.704893827, 6.66586893e-15, 1, 3.93633112e-11, -0.704893827, 2.79256011e-11, -0.709312856)
+end end)
+
+
+   Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
+   game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
+   Clone.Parent = game:GetService("Players").LocalPlayer.Character
+
+spawn(function()
+   while wait (1) do
+       pcall(function()
+   game.Players.LocalPlayer.CharacterAdded:Connect(function()
+               game.Players.LocalPlayer.settings["Display Gun"].Value = false
+               wait(4)
+               Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
+               game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
+               Clone.Parent = game:GetService("Players").LocalPlayer.Character
+               end)
+       end) end end)
+       
+spawn(function()
+   while wait () do
+ for i,v in pairs(game.Players:GetPlayers()) do
+     if v.Name == game.Players.LocalPlayer.Name then
+         else
+         game:GetService("ReplicatedStorage").RemoteEvent:FireServer(30, v)
+     end end end end)
+     
+game:GetService("RunService").Stepped:connect(function()
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(16, "public")
+end)
+else
+  game:GetService("TeleportService"):Teleport(834827615, LocalPlayer)
+  end
+
+
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+ vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+ wait(1)
+ vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
