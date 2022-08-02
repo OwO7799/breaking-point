@@ -9,7 +9,7 @@ if game.PlaceId == 834827615 then
         "SendNotification",
         {
             Title = "Credis",
-            Text = "IsaaaKK#9010, DekuDimz, valor#7303"
+            Text = "Original:IsaaaKK#9010, DekuDimz, valor#7303 Remake:INMENR"
         }
     )
     Clone = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Clone()
